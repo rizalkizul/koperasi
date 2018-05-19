@@ -1,0 +1,140 @@
+table.main {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+body.mainBody{
+	background-image: url(../img/mainBody.jpg);	
+}
+.judulTabel{
+	padding: 30px;
+	padding-bottom: 0px;
+	margin-left:calc(50% - 200px);
+	color: #707070;
+}
+th.main{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 10px;
+	text-align: left;
+}
+td.main{
+	height: 40px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+}
+td.no{
+	height: 40px;
+	max-width: 20px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: right;
+	padding-right: 3px;
+}
+td.alamat{
+	height: 40px;
+	max-width: 200px;
+	overflow: auto;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+}
+table.form {
+    font-family: arial, sans-serif;
+    
+	border-collapse: collapse;
+    margin-top: 30px;
+    margin-left:calc(50% - 300px);
+}
+th.form1{
+	padding: 10px;
+	border-right: 8px solid #81D871;
+	border-radius: 8px;
+}
+th.form2{
+	padding-top: 15px;
+	padding-left: 30px;
+}
+input[type=text], input[type=password] {
+    width: 300px;
+    height: 30px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+}
+#btnUbah {
+    /*background-color: #4CAF50;*/
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 30px;
+    background-color: #81D871; background-image: -webkit-gradient(linear, left top, left bottom, from(#81D871), to(#ACF39F));
+	 background-image: -webkit-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: -moz-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: -ms-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: -o-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: linear-gradient(to bottom, #81D871, #ACF39F);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#81D871, endColorstr=#ACF39F);
+}
+.divBtnUbah{
+	border-bottom: 2px solid #ccc;
+	width: 300px;
+}
+#btnCancel {
+    /*background-color: #4CAF50;*/
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 5px;
+    float: right;
+    background-color: #81D871; background-image: -webkit-gradient(linear, left top, left bottom, from(#81D871), to(#ACF39F));
+	 background-image: -webkit-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: -moz-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: -ms-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: -o-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: linear-gradient(to bottom, #81D871, #ACF39F);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#81D871, endColorstr=#ACF39F);
+}
+#btnUbahListAnggota {
+    /*background-color: #4CAF50;*/
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 5px;	
+    background-color: #81D871; background-image: -webkit-gradient(linear, left top, left bottom, from(#81D871), to(#ACF39F));
+	 background-image: -webkit-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: -moz-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: -ms-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: -o-linear-gradient(top, #81D871, #ACF39F);
+	 background-image: linear-gradient(to bottom, #81D871, #ACF39F);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#81D871, endColorstr=#ACF39F);
+}
+.divBtnTambahListAnggota{
+	border-bottom: 2px solid #ccc;
+	width: 300px;
+	margin-top: -19px;
+}
+.btnDelete{
+	float: right;
+}
+img.delete{
+	height: 30px;
+}
