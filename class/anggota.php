@@ -41,5 +41,46 @@ class Listanggota{
 		$result = mysqli_query($this->db,$sqlhapus);
 		return $result;
 	}
+
+	public function updateAnggota($id_pengguna, $nama, $no_hp, $jabatan, $alamat, $gender, $email){
+			$id_pengguna = mysqli_escape_string($this->db,$_POST['id_pengguna']);
+			$nama = mysqli_real_escape_string($this->db,$_POST['nama']);
+			$no_hp = mysqli_real_escape_string($this->db,$_POST['no_hp']);
+			$jabatan = mysqli_real_escape_string($this->db,$_POST['jabatan']);
+			$alamat = mysqli_real_escape_string($this->db,$_POST['alamat']);
+			$gender = mysqli_real_escape_string($this->db,$_POST['gender']);
+			$email = mysqli_real_escape_string($this->db,$_POST['email']);
+			$sqlUpdate = "UPDATE pengguna SET nama='$nama', no_hp='$no_hp', jabatan='$jabatan', alamat='$alamat', gender='$gender', email='$email'  WHERE id_pengguna='$id_pengguna'";
+			$result = mysqli_query($this->db,$sqlUpdate);
+			// $changeStatus = mysqli_fetch_array($result) or die(mysqli_connect_errno()."Data can not updated");
+			return $result;
+		}
+
+		public function registAnggota($id_pengguna, $nama, $no_hp, $gender, $alamat, $email, $password){
+			$id_pengguna = mysqli_real_escape_string($this->db,$_POST['id_pengguna']);
+			$nama = mysqli_real_escape_string($this->db,$_POST['nama']);
+			$no_hp = mysqli_real_escape_string($this->db,$_POST['no_hp']);
+			$alamat = mysqli_real_escape_string($this->db,$_POST['alamat']);
+			$gender = mysqli_real_escape_string($this->db,$_POST['gender']);
+			$email = mysqli_real_escape_string($this->db,$_POST['email']);
+			$password = mysqli_real_escape_string($this->db,$_POST['password']);
+
+			$sql1="SELECT * FROM pengguna WHERE email='$email'";
+			$check = $this->db->query($sql1) ;
+			$count_row = $check->num_rows;
+
+			if ($count_row == 0){
+				$sql2="INSERT INTO pengguna (id_pengguna, nama, no_hp, jabatan, alamat, gender, email, password) VALUES ('$id_pengguna', '$nama', '$no_hp', 'anggota', '$alamat', '$gender', '$email', '$password')";
+
+			$result = mysqli_query($this->db,$sql2);
+
+			if($sql2){
+   				 echo 'Anda berhasil mendaftar';
+   				 return $result;
+					}  else {
+ 			     echo 'Anda gagal mendaftar, E-mail sudah terdaftar';
+					}
+			}
+	}
 }
 ?>

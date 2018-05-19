@@ -78,7 +78,7 @@
 				    <div class="divBtnTambahListAnggota">
 				    	<button id="btnUbah" type="submit" name="submit" value="Submit">Tambah</button>
 				    </div>
-				    <button id="btnUbahListAnggota" type="submit">Ubah</button> <button id="btnCancel" type="submit">Hapus</button>
+				    <button id="btnUbahListAnggota" type="submit" name="Update" value="Update">Ubah</button> <button id="btnCancel" type="reset" value="Reset">Bersihkan Field</button>
 				</th>
 			</tr>		
 		</table>
