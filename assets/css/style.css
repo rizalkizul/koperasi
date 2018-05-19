@@ -27,7 +27,7 @@ body.mainBody{
 	text-align: right;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password]{
     width: 400px;
     height: 35px;
     padding: 12px 20px;
@@ -35,6 +35,20 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 2px solid #ccc;
     border-radius: 30px;
+}
+ input[type=radio]{
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+ textarea {
+    width: 400px;
+    height: 100px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    resize: none;
 }
 
 #btnLogin {
@@ -262,5 +276,78 @@ button:hover {
   background-color:red;
   transform:translatez(-60px) scale();
 }
-
-
+table.form {
+    font-family: arial, sans-serif;
+  border-collapse: collapse;
+    margin-top: 30px;
+    margin-left:calc(50% - 550px);
+}
+th.form1{
+  padding: 10px;
+  border-right: 8px solid #81D871;
+  border-radius: 8px;
+  padding-right: 38px;
+}
+th.form2{
+  vertical-align: top;
+  padding: 10px;
+}
+.spanReg{
+  font-family: comfortaa;
+  font-weight: bold;
+  line-height: 26px;
+  text-align: right;
+  vertical-align: top;
+  padding-top: 25px;
+}
+.spanReg2{
+  font-family: comfortaa;
+  font-weight: bold;
+  /*line-height: 26px;*/
+  text-align: right;
+  vertical-align: top;
+  padding-top: 25px;
+  padding-left: 38px;
+}
+#btnDaftar {
+    /*background-color: #4CAF50;*/
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 5px;  
+    font-family: comfortaa;
+    background-color: #81D871; background-image: -webkit-gradient(linear, left top, left bottom, from(#81D871), to(#ACF39F));
+   background-image: -webkit-linear-gradient(top, #81D871, #ACF39F);
+   background-image: -moz-linear-gradient(top, #81D871, #ACF39F);
+   background-image: -ms-linear-gradient(top, #81D871, #ACF39F);
+   background-image: -o-linear-gradient(top, #81D871, #ACF39F);
+   background-image: linear-gradient(to bottom, #81D871, #ACF39F);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#81D871, endColorstr=#ACF39F);
+}
+#btnBatalDaftar {
+    /*background-color: #4CAF50;*/
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 5px;  
+    font-family: comfortaa;
+    margin-left: 700px;
+    background-color: #81D871; background-image: -webkit-gradient(linear, left top, left bottom, from(#81D871), to(#ACF39F));
+   background-image: -webkit-linear-gradient(top, #81D871, #ACF39F);
+   background-image: -moz-linear-gradient(top, #81D871, #ACF39F);
+   background-image: -ms-linear-gradient(top, #81D871, #ACF39F);
+   background-image: -o-linear-gradient(top, #81D871, #ACF39F);
+   background-image: linear-gradient(to bottom, #81D871, #ACF39F);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#81D871, endColorstr=#ACF39F);
+}
+.divBtnDaftar{
+    margin-left:500px;
+  border-bottom: 2px solid #ccc;
+  width: 300px;
+}

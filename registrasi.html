@@ -16,29 +16,50 @@
 	<form>
 		<table class="form">
 			<tr>
+				<th class="spanReg">
+					ID
+					<br><br>
+					Nama
+					<br><br>
+					Alamat
+				</th>
 				<th class="form1">
 					<input type="text" placeholder="ID" name="uname" required>
 				    <br>
-				    <input type="password" placeholder="Nama" name="psw" required>
+				    <input type="text" placeholder="Nama" name="psw" required>
 				    <br>
-				    <input type="text" placeholder="Alamat" name="uname" required>
-				    <br>
-				    <input type="password" placeholder="Tgl Lahir" name="psw" required>
+				    <textarea name="" placeholder="Alamat" required=""></textarea>
+				</th>
+				<th class="spanReg2">
+					No. HP
+					<br></br>
+					Jenis Kelamin
+					<br><br>
+					Email
+					<br><br>
+					Password
+					<br><br><br>
+					Konfirmasi Password
 				</th>
 				<th class="form2">
 					<input type="text" placeholder="No. HP" name="uname" required>
 				    <br>
-				    <input type="radio" selected>Laki-laki</input><span style="padding-left: 50px"><input type="radio">Perempuan</input></span>
+				    <input type="radio" name="" selected>Laki-laki</input><span style="padding-left: 50px"><input type="radio" name="">Perempuan</input></span>
 				    <br>
-				    <input type="password" placeholder="Email" name="psw" required>
+				    <input type="text" placeholder="Email" name="psw" required>
 				    <br>
-				    <div class="divBtnTambahListAnggota">
-				    	<button id="btnUbah" type="submit">Daftar</button>
-				    	<button id="btnUbah" type="submit">Batal</button>
-				    </div>
+				    <input type="password" placeholder="Password" name="psw" required>
+				    <br>
+				    <input type="password" placeholder="Masukkan Kembali Password" name="psw" required>
+				    <br>
+				    
 				</th>
 			</tr>		
 		</table>
+		<div class="divBtnDaftar">
+				    	<button id="btnDaftar" type="submit">Daftar</button><br>
+				    </div>
 	</form>	
+	<button id="btnBatalDaftar" type="submit">Batal</button>
 </body>
 </html>
