@@ -8,6 +8,26 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+    $('#listAnggota tr').click(function() {
+        var href = $(this).find("a").attr("href");
+        if(href) {
+            window.location = href;
+        }
+    });
+
+});
+	</script>
+	<script type="text/javascript">
+$(document).ready(function() {
+    $('#btnCancel').click(function() {
+       document.getElementById('ids').value = "";
+    	document.getElementById('namas').value = "";
+    });
+    });
+	</script>
 </head>
 <body class="mainBody">
 	<?php
@@ -19,34 +39,33 @@
 	  		<table class="main">
 	  			<thead>
 				  <tr class="main">
-				    <th class="main">No</th>
-				    <th class="main">ID</th>
-				    <th class="main">Nama</th>
-				    <th class="main">No. HP</th>
-				    <th class="main">Jenis Kelamin</th>
-				    <th class="main">Alamat</th>
-				    <th class="main">Jabatan</th>
-				    <th class="main">Email</th>
+				    <th class="no">No</th>
+				    <th class="id">ID</th>
+				    <th class="nama">Nama</th>
+				    <th class="noHP">No. HP</th>
+				    <th class="jk">Jenis Kelamin</th>
+				    <th class="alamat">Alamat</th>
+				    <th class="email">Email</th>
 				  </tr>
 				</thead>
 			</table>
 			<div style="overflow: auto;height: 240px;">
-				<table class="main">
+				<table class="main" id="listAnggota">
 					<tbody style="overflow: auto;height: 240px;">
 						 <?php
 						 	$link = mysqli_connect("localhost", "root", "", "koperasi");
 							$result = mysqli_query($link,"SELECT * FROM pengguna");
 							// $id_pengguna = mysqli_fetch_array($result,MYSQLI_ASSOC);
 						 	while	($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-						 		echo "	<tr class=\"main\">
-						 					<td class=\"no\">999</td>
-						 					<td class=\"main\">$row[id_pengguna]</td>
-						 					<td class=\"main\">$row[nama]</td>
-						 					<td class=\"main\">$row[no_hp]</td>
-						 					<td class=\"main\">$row[gender]</td>
+						 		echo "	
+						 				<tr class=\"main\">
+						 					<td class=\"no\"><a class=\"link\" href=\"listAnggota.php?id_pengguna=$row[id_pengguna]\">999</a></td>
+						 					<td class=\"id\">$row[id_pengguna]</td>
+						 					<td class=\"nama\">$row[nama]</td>
+						 					<td class=\"noHP\">$row[no_hp]</td>
+						 					<td class=\"jk\">$row[gender]</td>
 						 					<td class=\"alamat\">$row[alamat]</td>
-						 					<td class=\"main\">$row[jabatan]</td>
-						 					<td class=\"main\">$row[email]<span style=\"float:right;\"> <a href=\"controller/listController.php?p=hapus&id_pengguna=$row[id_pengguna]\" onClick=\"return confirm('Anda yakin ingin menghapus data?')\"> <img style=\"height:30px;\" src=\"assets/img/delete.png\"> </a> </span> </td>
+						 					<td class=\"email\">$row[email]<span style=\"float:right;\"> <a href=\"controller/listController.php?p=hapus&id_pengguna=$row[id_pengguna]\" onClick=\"return confirm('Anda yakin ingin menghapus data?')\"> <img style=\"height:30px;\" src=\"assets/img/delete.png\"> </a> </span> </td>
 						 				</tr>
 						 		";
 						 	}
@@ -55,34 +74,60 @@
 				 	</tbody>
 				 </table>
 			</div>
+			<?php
+				$idid = $_GET['id_pengguna'];
+				$link = mysqli_connect("localhost", "root", "", "koperasi");
+				$sqlEd = mysqli_query($link,"SELECT * FROM pengguna WHERE id_pengguna='$idid'");
+				if($data = mysqli_fetch_array($sqlEd, MYSQLI_ASSOC))
+					{
+						$id = $data['id_pengguna'];
+						$nama = $data['nama'];
+						$noHP = $data['no_hp'];
+						$alamat = $data['alamat'];
+						$gender = $data['gender'];
+						$email = $data['email'];
+
+			?>
 	<form action="controller/listController.php" method="post">
-		<table class="form">
+		<table class="form" id="formAnggota">
 			<tr>
 				<th class="form1">
-					<input type="text" placeholder="ID" name="id_pengguna" required>
+					<input id="ids" type="text" placeholder="ID" name="id_pengguna" value="<?php echo "$id"?>" required>
 				    <br>
-				    <input type="text" placeholder="Nama" name="nama" required>
+				    <input id="namas" type="text" placeholder="Nama" name="nama" value="<?php echo "$nama"?>" required>
 				    <br>
-				    <input type="text" placeholder="No.HP" name="no_hp" required>
-				    <br>
-				    <input type="text" placeholder="Jabatan" name="jabatan" required>
+				    <input type="text" placeholder="No.HP" name="no_hp" value="<?php echo "$noHP"?>" required>
 				</th>
 				<th class="form2">
-					<input type="text" placeholder="Alamat" name="alamat" required>
+					<input type="text" placeholder="Alamat" name="alamat" value="<?php echo "$alamat"?>" required>
 				    <br>
-				    <input type="radio" name="gender" value="Pria" checked>Pria </input> <span style="padding-left: 50px">
-				    <input type="radio" name="gender" value="Wanita">Wanita</input></span>
+				    <?php
+				    if ($gender == "Pria"){
+				    	echo "
+				    <input type=\"radio\" name=\"gender\" value=\"Pria\" checked>Pria </input> <span style=\"padding-left: 50px\">
+				    <input type=\"radio\" name=\"gender\" value=\"Wanita\">Wanita</input></span>";
+					}else{
+						
+						echo "
+				    <input type=\"radio\" name=\"gender\" value=\"Pria\">Pria </input> <span style=\"padding-left: 50px\">
+				    <input type=\"radio\" name=\"gender\" value=\"Wanita\" checked>Wanita</input></span>";
+					}
+				    ?>
 				    <br>
-				    <input type="text" placeholder="Email" name="email" required>
+				    <input type="text" placeholder="Email" name="email" value="<?php echo "$email"?>" required>
 				    <br>
 				    <div class="divBtnTambahListAnggota">
 				    	<button id="btnUbah" type="submit" name="submit" value="Submit">Tambah</button>
 				    </div>
-				    <button id="btnUbahListAnggota" type="submit" name="Update" value="Update">Ubah</button> <button id="btnCancel" type="reset" value="Reset">Bersihkan Field</button>
+				    <button id="btnUbahListAnggota" type="submit" name="Update" value="Update">Ubah</button> <button id="btnCancel" type="reset" value="Reset" onclick="clear()">Bersihkan Field</button>
 				</th>
 			</tr>		
 		</table>
 	</form>	
+	<button id="btnCancel" type="reset" value="Reset">Bersihkan Field</button>
+	<?php
+}
+?>
 	</div>
 	
 </body>

@@ -8,7 +8,7 @@
 
 	if (isset($_POST['submit'])) {
 		extract($_POST);
-		$tambah = $listanggota->addAnggota($id_pengguna, $nama, $no_hp, $jabatan, $alamat, $gender, $email);
+		$tambah = $listanggota->addAnggota($id_pengguna, $nama, $no_hp, $alamat, $gender, $email);
 		if ($tambah) {
 			echo $_POST;
 			header('Location: ../home.php');

@@ -13,17 +13,16 @@ class Listanggota{
 		}
 	}
 
-	public function addAnggota($id_pengguna, $nama, $no_hp, $jabatan, $alamat, $gender, $email){
+	public function addAnggota($id_pengguna, $nama, $no_hp, $alamat, $gender, $email){
 			$id_pengguna = mysqli_real_escape_string($this->db,$_POST['id_pengguna']);
 			$nama = mysqli_real_escape_string($this->db,$_POST['nama']);
 			$no_hp = mysqli_real_escape_string($this->db,$_POST['no_hp']);
-			$jabatan = mysqli_real_escape_string($this->db,$_POST['jabatan']);
 			$alamat = mysqli_real_escape_string($this->db,$_POST['alamat']);
 			$gender = mysqli_real_escape_string($this->db,$_POST['gender']);
 			$email = mysqli_real_escape_string($this->db,$_POST['email']);
 
 
-			$sql2="INSERT INTO pengguna (id_pengguna, nama, no_hp, jabatan, alamat, gender, email) VALUES ('$id_pengguna', '$nama', '$no_hp', '$jabatan', '$alamat', '$gender', '$email')";
+			$sql2="INSERT INTO pengguna (id_pengguna, nama, no_hp, jabatan, alamat, gender, email) VALUES ('$id_pengguna', '$nama', '$no_hp', 'anggota', '$alamat', '$gender', '$email')";
 
 			$result = mysqli_query($this->db,$sql2);
 
