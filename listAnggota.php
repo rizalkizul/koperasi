@@ -59,7 +59,7 @@ $(document).ready(function() {
 					<tbody style="overflow: auto;height: 240px;">
 						 <?php
 						 	$link = mysqli_connect("localhost", "root", "", "koperasi");
-							$result = mysqli_query($link,"SELECT * FROM pengguna");
+							$result = mysqli_query($link,"SELECT * FROM pengguna WHERE jabatan='Anggota'");
 							// $id_pengguna = mysqli_fetch_array($result,MYSQLI_ASSOC);
 						 	while	($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 						 		echo "	
@@ -99,14 +99,11 @@ $(document).ready(function() {
 		<table class="form" id="formAnggota">
 			<tr>
 				<th class="form1">
-					<input id="ids" type="text" placeholder="ID" name="id_pengguna" value="<?php echo "$id"?>" required>
+					<input id="ids" type="text" placeholder="ID" name="id_pengguna" value="<?php echo "$id"?>" required disabled>
 				    <br>
 				    <input id="namas" type="text" placeholder="Nama" name="nama" value="<?php echo "$nama"?>" required>
 				    <br>
 				    <input type="text" placeholder="No.HP" name="no_hp" value="<?php echo "$noHP"?>" required>
-				</th>
-				<th class="form2">
-					<input type="text" placeholder="Alamat" name="alamat" value="<?php echo "$alamat"?>" required>
 				    <br>
 				    <?php
 				    if ($gender == "Pria"){
@@ -120,13 +117,19 @@ $(document).ready(function() {
 				    <input type=\"radio\" name=\"gender\" value=\"Wanita\" checked>Wanita</input></span>";
 					}
 				    ?>
+				<br>	
+				</th>
+				<th class="form2">
+					<!-- <input type="text" placeholder="Alamat" name="alamat" value="<?php echo "$alamat"?>" required> -->
+				    
+				    <textarea class="alamat" name="alamat" placeholder="Alamat" required>
+<?php echo "$alamat"?></textarea>
 				    <br>
 				    <input type="text" placeholder="Email" name="email" value="<?php echo "$email"?>" required>
 				    <br>
 				    <div class="divBtnTambahListAnggota">
 				    	<button id="btnUbah" type="submit" name="submit" value="Submit">Tambah</button>
 				    </div>
-				    <button id="btnUbahListAnggota" type="submit" name="Update" value="Update">Ubah</button> <button id="btnCancel" type="reset" value="Reset" onclick="clear()">Bersihkan Field</button>
 				</th>
 			</tr>		
 		</table>
@@ -144,20 +147,20 @@ $(document).ready(function() {
 				    <input id="namas" type="text" placeholder="Nama" name="nama"required>
 				    <br>
 				    <input type="text" placeholder="No.HP" name="no_hp" required>
-				</th>
-				<th class="form2">
-					<input type="text" placeholder="Alamat" name="alamat" required>
 				    <br>
-				    
 				    <input type="radio" name="gender" value="Pria">Pria </input> <span style="padding-left: 50px">
 				    <input type="radio" name="gender" value="Wanita">Wanita</input></span>
+				</th>
+				<th class="form2">
+					<!-- <input type="text" placeholder="Alamat" name="alamat" required> -->
+				    <textarea class="alamat" name="alamat" placeholder="Alamat" required></textarea>
+				    
 				    <br>
 				    <input type="text" placeholder="Email" name="email" required>
 				    <br>
 				    <div class="divBtnTambahListAnggota">
 				    	<button id="btnUbah" type="submit" name="submit" value="Submit">Tambah</button>
 				    </div>
-				    <button id="btnUbahListAnggota" type="submit" name="Update" value="Update">Ubah</button> <button id="btnCancel" type="reset" value="Reset" onclick="clear()">Bersihkan Field</button>
 				</th>
 			</tr>		
 		</table>

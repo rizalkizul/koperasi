@@ -19,12 +19,16 @@
   			<thead>
 			  <tr class="main">
 			    <th class="main">No</th>
-			    <th class="main">ID</th>
-			    <th class="main">Nominal</th>
-			    <th class="main">Tanggal</th>
+			    <th class="main">ID Pembayaran</th>
+			    <th class="main">ID Anggota</th>
+			    <th class="main">Nama Anggota</th>
+			    <th class="main">ID Staff</th>
+			    <th class="main">Nama Staff</th>
 			    <th class="main">Jenis</th>
 			    <th class="main">Status</th>
-			    <th class="main">Penerima</th>
+			    <th class="main">Jenis</th>
+			    <th class="main">Tanggal</th>
+			    <th class="main">nominal</th>
 			  </tr>
 			</thead>
 				<div style="overflow: auto;height: 50px;">

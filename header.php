@@ -42,7 +42,7 @@ body {
 <div class="topnav">
 <a href=""><img src="assets/img/listAnggota.png" style="width: 30px;">Yayasan Istiqamah</a>
 	<div id="menu">
-	  <a class="active" href="#home">Beranda</a>
+	  <a class="active" href="home.php">Beranda</a>
 	  <a href="#news">Tentang</a>
 	  <a href="#contact">Struktur Organisasi</a>
 	  <a href="#about">Visi dan Misi</a>

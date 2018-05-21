@@ -13,8 +13,8 @@
 	<?php
 		include 'header.php';
 	?>
-	<button id="btnListAnggota" type="submit"><a href=""><img src="assets/img/listAnggota.png"></a><br>List<br>Anggota</button>
+	<button id="btnListAnggota" type="submit"><a href="listAnggota.php"><img src="assets/img/listAnggota.png"></a><br>List<br>Anggota</button>
 
-	<button id="btnTabelKeuangan" type="submit"><a href=""><img src="assets/img/tabelKeuangan.png"></a><br>Tabel<br>Keuangan</button>
+	<button id="btnTabelKeuangan" type="submit"><a href="tabelKeuangan.php"><img src="assets/img/tabelKeuangan.png"></a><br>Tabel<br>Keuangan</button>
 </body>
 </html>

@@ -167,7 +167,6 @@ a.link{
 }
 table.form {
     font-family: arial, sans-serif;
-    
 	border-collapse: collapse;
     margin-top: 30px;
     margin-left:calc(50% - 300px);
@@ -176,6 +175,7 @@ th.form1{
 	padding: 10px;
 	border-right: 8px solid #81D871;
 	border-radius: 8px;
+	width: 345px;
 }
 th.form2{
 	padding-top: 15px;
@@ -189,6 +189,8 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 2px solid #ccc;
     border-radius: 30px;
+    font-family: monospace;
+    outline: none;
 }
 #btnUbah {
     /*background-color: #4CAF50;*/
@@ -267,4 +269,17 @@ img.delete{
 .css-serial tr:hover{
   cursor: pointer;
   background-color: #ccc;
+}
+ textarea.alamat {
+    width: 300px;
+    height: 70px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    resize: none;
+    font-family: monospace;
+    line-height: 14px;
+    outline: none;
 }
