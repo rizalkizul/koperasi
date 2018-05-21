@@ -8,7 +8,7 @@ table.main {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
-tr.main:hover{
+td.no .id .nama .noHP .jk .alamat .email:hover{
 	background-color: #ccc;
 	cursor: pointer;
 }
@@ -114,7 +114,7 @@ td.main{
 }
 td.no{
 	height: 40px;
-	width: 15px;
+	width: 30px;
 	border-bottom: 1px solid #81D871;
 	border-right: 2px solid white;
 	text-align: right;
@@ -163,7 +163,7 @@ td.email{
 	border-right: 2px solid white;
 }
 a.link{
-
+	color: black;
 }
 table.form {
     font-family: arial, sans-serif;
@@ -256,4 +256,15 @@ input[type=text], input[type=password] {
 }
 img.delete{
 	height: 30px;
+}
+.css-serial {
+  counter-reset: serial-number;  /* Atur penomoran ke 0 */
+}
+.css-serial td:first-child:before {
+  counter-increment: serial-number;  /* Kenaikan penomoran */
+  content: counter(serial-number);  /* Tampilan counter */
+}
+.css-serial tr:hover{
+  cursor: pointer;
+  background-color: #ccc;
 }

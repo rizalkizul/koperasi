@@ -18,7 +18,7 @@
 	}
 	if (isset($_POST['Update'])) {
 		extract($_POST);
-		$update = $listanggota->updateAnggota($id_pengguna, $nama, $no_hp, $jabatan, $alamat, $gender, $email);
+		$update = $listanggota->updateAnggota($id_pengguna, $nama, $no_hp, $alamat, $gender, $email);
 		if ($update) {
 			echo "Data berhasil di ubah";
 		}else{

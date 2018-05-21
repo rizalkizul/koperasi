@@ -41,15 +41,14 @@ class Listanggota{
 		return $result;
 	}
 
-	public function updateAnggota($id_pengguna, $nama, $no_hp, $jabatan, $alamat, $gender, $email){
+	public function updateAnggota($id_pengguna, $nama, $no_hp, $alamat, $gender, $email){
 			$id_pengguna = mysqli_escape_string($this->db,$_POST['id_pengguna']);
 			$nama = mysqli_real_escape_string($this->db,$_POST['nama']);
 			$no_hp = mysqli_real_escape_string($this->db,$_POST['no_hp']);
-			$jabatan = mysqli_real_escape_string($this->db,$_POST['jabatan']);
 			$alamat = mysqli_real_escape_string($this->db,$_POST['alamat']);
 			$gender = mysqli_real_escape_string($this->db,$_POST['gender']);
 			$email = mysqli_real_escape_string($this->db,$_POST['email']);
-			$sqlUpdate = "UPDATE pengguna SET nama='$nama', no_hp='$no_hp', jabatan='$jabatan', alamat='$alamat', gender='$gender', email='$email'  WHERE id_pengguna='$id_pengguna'";
+			$sqlUpdate = "UPDATE pengguna SET nama='$nama', no_hp='$no_hp', alamat='$alamat', gender='$gender', email='$email'  WHERE id_pengguna='$id_pengguna'";
 			$result = mysqli_query($this->db,$sqlUpdate);
 			// $changeStatus = mysqli_fetch_array($result) or die(mysqli_connect_errno()."Data can not updated");
 			return $result;

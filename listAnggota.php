@@ -11,14 +11,14 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 
-    $('#listAnggota tr').click(function() {
-        var href = $(this).find("a").attr("href");
-        if(href) {
-            window.location = href;
-        }
-    });
+		    $('#listAnggota tr').click(function() {
+		        var href = $(this).find("a").attr("href");
+		        if(href) {
+		            window.location = href;
+		        }
+		    });
 
-});
+		});
 	</script>
 	<script type="text/javascript">
 $(document).ready(function() {
@@ -27,6 +27,11 @@ $(document).ready(function() {
     	document.getElementById('namas').value = "";
     });
     });
+	</script>
+	<script type="text/javascript">
+		var index = iDisplayIndex +1;
+	$('td:eq(0)',nRow).html(index);
+	return nRow;
 	</script>
 </head>
 <body class="mainBody">
@@ -50,7 +55,7 @@ $(document).ready(function() {
 				</thead>
 			</table>
 			<div style="overflow: auto;height: 240px;">
-				<table class="main" id="listAnggota">
+				<table class="main css-serial" id="listAnggota">
 					<tbody style="overflow: auto;height: 240px;">
 						 <?php
 						 	$link = mysqli_connect("localhost", "root", "", "koperasi");
@@ -59,7 +64,7 @@ $(document).ready(function() {
 						 	while	($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 						 		echo "	
 						 				<tr class=\"main\">
-						 					<td class=\"no\"><a class=\"link\" href=\"listAnggota.php?id_pengguna=$row[id_pengguna]\">999</a></td>
+						 					<td id=\"noList\" class=\"no\"><a class=\"link\" href=\"listAnggota.php?id_pengguna=$row[id_pengguna]\"></a></td>
 						 					<td class=\"id\">$row[id_pengguna]</td>
 						 					<td class=\"nama\">$row[nama]</td>
 						 					<td class=\"noHP\">$row[no_hp]</td>
@@ -75,6 +80,8 @@ $(document).ready(function() {
 				 </table>
 			</div>
 			<?php
+			if (isset($_GET['id_pengguna'])) {
+
 				$idid = $_GET['id_pengguna'];
 				$link = mysqli_connect("localhost", "root", "", "koperasi");
 				$sqlEd = mysqli_query($link,"SELECT * FROM pengguna WHERE id_pengguna='$idid'");
@@ -127,6 +134,37 @@ $(document).ready(function() {
 	<button id="btnCancel" type="reset" value="Reset">Bersihkan Field</button>
 	<?php
 }
+}else{ ?>
+	<form action="controller/listController.php" method="post">
+		<table class="form">
+			<tr>
+				<th class="form1">
+					<input id="ids" type="text" placeholder="ID" name="id_pengguna"required>
+				    <br>
+				    <input id="namas" type="text" placeholder="Nama" name="nama"required>
+				    <br>
+				    <input type="text" placeholder="No.HP" name="no_hp" required>
+				</th>
+				<th class="form2">
+					<input type="text" placeholder="Alamat" name="alamat" required>
+				    <br>
+				    
+				    <input type="radio" name="gender" value="Pria">Pria </input> <span style="padding-left: 50px">
+				    <input type="radio" name="gender" value="Wanita">Wanita</input></span>
+				    <br>
+				    <input type="text" placeholder="Email" name="email" required>
+				    <br>
+				    <div class="divBtnTambahListAnggota">
+				    	<button id="btnUbah" type="submit" name="submit" value="Submit">Tambah</button>
+				    </div>
+				    <button id="btnUbahListAnggota" type="submit" name="Update" value="Update">Ubah</button> <button id="btnCancel" type="reset" value="Reset" onclick="clear()">Bersihkan Field</button>
+				</th>
+			</tr>		
+		</table>
+	</form>	
+	<?php
+}
+
 ?>
 	</div>
 	
