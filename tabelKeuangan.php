@@ -27,7 +27,31 @@
 			    <th class="main">Penerima</th>
 			  </tr>
 			</thead>
-		  <tr>
+				<div style="overflow: auto;height: 50px;">
+				<table class="main">
+					<tbody style="overflow: auto;height: 50px;">
+						 <?php
+						 	$link = mysqli_connect("localhost", "root", "", "koperasi");
+							$result = mysqli_query($link,"SELECT * FROM pembayaran");
+							// $id_pengguna = mysqli_fetch_array($result,MYSQLI_ASSOC);
+						 	while	($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+						 		echo "	<tr class=\"main\">
+						 					<td class=\"no\">999</td>
+						 					<td class=\"main\">$row[id_pembayaran]</td>
+						 					<td class=\"main\">$row[nominal]</td>
+						 					<td class=\"main\">$row[tgl_pembayaran]</td>
+						 					<td class=\"main\">$row[jenis]</td>
+						 					<td class=\"main\">$row[status]</td>
+						 					<td class=\"main\">$row[penerima]</td>
+						 				</tr>
+						 		";
+						 	}
+
+						 ?>
+				 	</tbody>
+				 </table>
+			</div>
+		  <!-- <tr>
 		  	<td class="main">1</td>
 		  	<td class="main"></td>
 		  	<td class="main"></td>
@@ -80,29 +104,29 @@
 		  	<td class="main"></td>
 		  	<td class="main"></td>
 		  	<td class="main"></td>
-		  </tr>
+		  </tr> -->
 		</table>
-	<form>
+	<form action="controller/listController.php" method="post">
 		<table class="form">
 			<tr>
 				<th class="form1">
-					<input type="text" placeholder="ID" name="uname" required>
+					<input type="text" placeholder="ID" name="id_pembayaran" required>
 				    <br>
-				    <input type="password" placeholder="Nominal" name="psw" required>
+				    <input type="text" placeholder="Nominal" name="nominal" required>
 				    <br>
-				    <input type="text" placeholder="Tanggal" name="uname" required>
+				    <input type="text" placeholder="Tanggal" name="tgl_pembayaran" required>
 				    <br>
-				    <input type="password" placeholder="Jenis" name="psw" required>
+				    <input type="text" placeholder="Jenis" name="jenis" required>
 				</th>
 				<th class="form2">
-					<input type="text" placeholder="Status" name="uname" required>
+					<input type="text" placeholder="Status" name="status" required>
 				    <br>
-				    <input type="password" placeholder="Penerima" name="psw" required>
+				    <input type="text" placeholder="Penerima" name="penerima" required>
 				    <br>
 				    <div class="divBtnUbah">
-				    	<button id="btnUbah" type="submit">Ubah</button>
+				    	<button id="btnUbah" type="submit" name="Update_pembayaran" value="Update_pembayaran">Ubah</button>
 				    </div>
-				    <button id="btnCancel" type="submit">Batal</button>
+				    <button id="btnCancel" type="reset" value="reset">Batal</button>
 				</th>
 			</tr>		
 		</table>

@@ -80,5 +80,19 @@ class Listanggota{
 					}
 			}
 	}
+
+	public function updatePembayaran($id_pembayaran, $id_pengguna, $jenis, $status, $tgl_pembayaran, $penerima, $nominal){
+			$id_pembayaran = mysqli_real_escape_string($this->db,$_POST['id_pembayaran']);
+			$id_pengguna = mysqli_real_escape_string($this->db,$_POST['id_pengguna']);
+			$jenis = mysqli_real_escape_string($this->db,$_POST['jenis']);
+			$status = mysqli_real_escape_string($this->db,$_POST['status']);
+			$tgl_pembayaran = mysqli_real_escape_string($this->db,$_POST['tgl_pembayaran']);
+			$penerima = mysqli_real_escape_string($this->db,$_POST['penerima']);
+			$nominal = mysqli_real_escape_string($this->db,$_POST['nominal']);
+			$sqlUpdate = "UPDATE pembayaran SET jenis='$jenis', status='$status', tgl_pembayaran='$tgl_pembayaran', penerima='$penerima', nominal='$nominal' WHERE id_pembayaran='$id_pembayaran'";
+			$result = mysqli_query($this->db,$sqlUpdate);
+			// $changeStatus = mysqli_fetch_array($result) or die(mysqli_connect_errno()."Data can not updated");
+			return $result;
+		}
 }
 ?>
