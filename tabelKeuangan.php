@@ -18,35 +18,38 @@
   		<table class="main">
   			<thead>
 			  <tr class="main">
-			    <th class="main">No</th>
-			    <th class="main">ID Pembayaran</th>
-			    <th class="main">ID Anggota</th>
-			    <th class="main">Nama Anggota</th>
-			    <th class="main">ID Staff</th>
-			    <th class="main">Nama Staff</th>
-			    <th class="main">Jenis</th>
-			    <th class="main">Status</th>
-			    <th class="main">Jenis</th>
-			    <th class="main">Tanggal</th>
-			    <th class="main">nominal</th>
+			    <th class="noKeu">No</th>
+			    <th class="idKeu">ID Pembayaran</th>
+			    <th class="idAnggotaKeu">ID Anggota</th>
+			    <th class="namaAnggotaKeu">Nama Anggota</th>
+			    <th class="idPengKeu">ID Staff</th>
+			    <th class="namaPengKeu">Nama Staff</th>
+			    <th class="jenisKeu">Jenis</th>
+			    <th class="statusKeu">Status</th>
+			    <th class="tanggalKeu">Tanggal</th>
+			    <th class="nominalKeu">nominal</th>
 			  </tr>
 			</thead>
-				<div style="overflow: auto;height: 50px;">
-				<table class="main">
+			</table>
+				<div style="overflow: auto;height: 240px;">
+				<table class="main css-serial">
 					<tbody style="overflow: auto;height: 50px;">
 						 <?php
 						 	$link = mysqli_connect("localhost", "root", "", "koperasi");
-							$result = mysqli_query($link,"SELECT * FROM pembayaran");
+							$result = mysqli_query($link,"SELECT pembayaran.*,anggota.nama as nama_anggota,pengurus.nama as nama_pengurus FROM pembayaran,anggota, pengurus WHERE pembayaran.id_anggota=anggota.id_anggota AND pembayaran.id_pengurus=pengurus.id_pengurus;");
 							// $id_pengguna = mysqli_fetch_array($result,MYSQLI_ASSOC);
 						 	while	($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 						 		echo "	<tr class=\"main\">
-						 					<td class=\"no\">999</td>
-						 					<td class=\"main\">$row[id_pembayaran]</td>
-						 					<td class=\"main\">$row[nominal]</td>
-						 					<td class=\"main\">$row[tgl_pembayaran]</td>
-						 					<td class=\"main\">$row[jenis]</td>
-						 					<td class=\"main\">$row[status]</td>
-						 					<td class=\"main\">$row[penerima]</td>
+						 					<td class=\"noKeu\"></td>
+						 					<td class=\"idKeu\">$row[id_pembayaran]</td>
+						 					<td class=\"idAnggotaKeu\">$row[id_anggota]</td>
+						 					<td class=\"namaAnggotaKeu\">$row[nama_anggota]</td>
+						 					<td class=\"idPengKeu\">$row[id_pengurus]</td>
+						 					<td class=\"namaPengKeu\">$row[nama_pengurus]</td>
+						 					<td class=\"jenisKeu\">$row[jenis]</td>
+						 					<td class=\"statusKeu\">$row[status]</td>
+						 					<td class=\"tanggalKeu\">$row[tanggal]</td>
+						 					<td class=\"nominalKeu\">Rp. $row[nominal],- <span style=\"float:right;\"> <a href=\"controller/\" onClick=\"return confirm('Anda yakin ingin menghapus data?')\"> <img style=\"height:30px;\" src=\"assets/img/delete.png\"> </a> </span></td>
 						 				</tr>
 						 		";
 						 	}
@@ -55,60 +58,7 @@
 				 	</tbody>
 				 </table>
 			</div>
-		  <!-- <tr>
-		  	<td class="main">1</td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  </tr>
-		  <tr>
-		  	<td class="main">2</td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  </tr>
-		  <tr>
-		  	<td class="main">3</td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  </tr>
-		  <tr>
-		  	<td class="main">4</td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  </tr>
-		  <tr>
-		  	<td class="main">5</td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  </tr>
-		  <tr>
-		  	<td class="main">6</td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  	<td class="main"></td>
-		  </tr> -->
+		  
 		</table>
 	<form action="controller/listController.php" method="post">
 		<table class="form">

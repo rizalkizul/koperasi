@@ -40,7 +40,50 @@ th.no{
 	text-align: left;
 	width: 13px;
 }
+th.noKeu{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 13px;
+}
 th.id{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 55px;
+	padding-left: 10px;
+}
+th.idKeu{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 55px;
+	padding-left: 10px;
+}
+th.idAnggotaKeu{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 55px;
+	padding-left: 10px;
+}
+th.idPengKeu{
 	height: 40px;
 	border: 2px solid white;
 	background-color: #81D871;
@@ -60,6 +103,72 @@ th.nama{
 	padding: 3px;
 	text-align: left;
 	width: 180px;
+	padding-left: 10px;
+}
+th.namaAnggotaKeu{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 180px;
+	padding-left: 10px;
+}
+th.namaPengKeu{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 180px;
+	padding-left: 10px;
+}
+th.jenisKeu{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 70px;
+	padding-left: 10px;
+}
+th.statusKeu{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 70px;
+	padding-left: 10px;
+}
+th.tanggalKeu{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 160px;
+	padding-left: 10px;
+}
+th.nominalKeu{
+	height: 40px;
+	border: 2px solid white;
+	background-color: #81D871;
+	color: white;
+	font-family: Comfortaa;
+	padding: 3px;
+	text-align: left;
+	width: 120px;
 	padding-left: 10px;
 }
 th.noHP{
@@ -120,7 +229,36 @@ td.no{
 	text-align: right;
 	padding-right: 3px;
 }
+td.noKeu{
+	height: 40px;
+	width: 30px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: right;
+	padding-right: 3px;
+}
 td.id{
+	height: 40px;
+	width: 55px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: center;
+}
+td.idKeu{
+	height: 40px;
+	width: 110px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: center;
+}
+td.idAnggotaKeu{
+	height: 40px;
+	width: 75px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: center;
+}
+td.idPengKeu{
 	height: 40px;
 	width: 55px;
 	border-bottom: 1px solid #81D871;
@@ -130,6 +268,48 @@ td.id{
 td.nama{
 	height: 40px;
 	width: 180px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: left;
+}
+td.namaAnggotaKeu{
+	height: 40px;
+	width: 180px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: left;
+}
+td.namaPengKeu{
+	height: 40px;
+	width: 180px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: left;
+}
+td.jenisKeu{
+	height: 40px;
+	width: 70px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: left;
+}
+td.statusKeu{
+	height: 40px;
+	width: 70px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: left;
+}
+td.tanggalKeu{
+	height: 40px;
+	width: 160px;
+	border-bottom: 1px solid #81D871;
+	border-right: 2px solid white;
+	text-align: left;
+}
+td.nominalKeu{
+	height: 40px;
+	width: 120px;
 	border-bottom: 1px solid #81D871;
 	border-right: 2px solid white;
 	text-align: left;

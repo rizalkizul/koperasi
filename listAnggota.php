@@ -59,18 +59,18 @@ $(document).ready(function() {
 					<tbody style="overflow: auto;height: 240px;">
 						 <?php
 						 	$link = mysqli_connect("localhost", "root", "", "koperasi");
-							$result = mysqli_query($link,"SELECT * FROM pengguna WHERE jabatan='Anggota'");
-							// $id_pengguna = mysqli_fetch_array($result,MYSQLI_ASSOC);
+							$result = mysqli_query($link,"SELECT * FROM anggota");
+							// $id_anggota = mysqli_fetch_array($result,MYSQLI_ASSOC);
 						 	while	($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 						 		echo "	
 						 				<tr class=\"main\">
-						 					<td id=\"noList\" class=\"no\"><a class=\"link\" href=\"listAnggota.php?id_pengguna=$row[id_pengguna]\"></a></td>
-						 					<td class=\"id\">$row[id_pengguna]</td>
+						 					<td id=\"noList\" class=\"no\"><a class=\"link\" href=\"listAnggota.php?id_anggota=$row[id_anggota]\"></a></td>
+						 					<td class=\"id\">$row[id_anggota]</td>
 						 					<td class=\"nama\">$row[nama]</td>
 						 					<td class=\"noHP\">$row[no_hp]</td>
 						 					<td class=\"jk\">$row[gender]</td>
 						 					<td class=\"alamat\">$row[alamat]</td>
-						 					<td class=\"email\">$row[email]<span style=\"float:right;\"> <a href=\"controller/listController.php?p=hapus&id_pengguna=$row[id_pengguna]\" onClick=\"return confirm('Anda yakin ingin menghapus data?')\"> <img style=\"height:30px;\" src=\"assets/img/delete.png\"> </a> </span> </td>
+						 					<td class=\"email\">$row[email]<span style=\"float:right;\"> <a href=\"controller/listController.php?p=hapus&id_anggota=$row[id_anggota]\" onClick=\"return confirm('Anda yakin ingin menghapus data?')\"> <img style=\"height:30px;\" src=\"assets/img/delete.png\"> </a> </span> </td>
 						 				</tr>
 						 		";
 						 	}
@@ -80,14 +80,14 @@ $(document).ready(function() {
 				 </table>
 			</div>
 			<?php
-			if (isset($_GET['id_pengguna'])) {
+			if (isset($_GET['id_anggota'])) {
 
-				$idid = $_GET['id_pengguna'];
+				$idid = $_GET['id_anggota'];
 				$link = mysqli_connect("localhost", "root", "", "koperasi");
-				$sqlEd = mysqli_query($link,"SELECT * FROM pengguna WHERE id_pengguna='$idid'");
+				$sqlEd = mysqli_query($link,"SELECT * FROM anggota WHERE id_anggota='$idid'");
 				if($data = mysqli_fetch_array($sqlEd, MYSQLI_ASSOC))
 					{
-						$id = $data['id_pengguna'];
+						$id = $data['id_anggota'];
 						$nama = $data['nama'];
 						$noHP = $data['no_hp'];
 						$alamat = $data['alamat'];
@@ -99,7 +99,7 @@ $(document).ready(function() {
 		<table class="form" id="formAnggota">
 			<tr>
 				<th class="form1">
-					<input id="ids" type="text" placeholder="ID" name="id_pengguna" value="<?php echo "$id"?>" required disabled>
+					<input id="ids" type="text" placeholder="ID" name="id_anggota" value="<?php echo "$id"?>" readonly="true" required>
 				    <br>
 				    <input id="namas" type="text" placeholder="Nama" name="nama" value="<?php echo "$nama"?>" required>
 				    <br>
@@ -130,6 +130,7 @@ $(document).ready(function() {
 				    <div class="divBtnTambahListAnggota">
 				    	<button id="btnUbah" type="submit" name="submit" value="Submit">Tambah</button>
 				    </div>
+				    <button id="btnUbahListAnggota" type="submit" name="Update">Ubah</button>
 				</th>
 			</tr>		
 		</table>
@@ -142,7 +143,7 @@ $(document).ready(function() {
 		<table class="form">
 			<tr>
 				<th class="form1">
-					<input id="ids" type="text" placeholder="ID" name="id_pengguna"required>
+					<input id="ids" type="text" placeholder="ID" name="id_anggota"required>
 				    <br>
 				    <input id="namas" type="text" placeholder="Nama" name="nama"required>
 				    <br>
