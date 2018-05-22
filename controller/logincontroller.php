@@ -11,7 +11,7 @@
 			header('Location: ../home.php');
 
 		}else{
-			echo "username atau password salah.";
+			header('Location: ../login.php#popup1');
 		}
 	}
 ?>

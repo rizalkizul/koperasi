@@ -11,7 +11,7 @@
 		$tambah = $listanggota->addAnggota($id_anggota, $nama, $no_hp, $alamat, $gender, $email);
 		if ($tambah) {
 			echo $_POST;
-			header('Location: ../home.php');
+			header('Location: ../listAnggotaAdmin.php?p=berhasil#popup2');
 		}else{
 			echo "username atau password salah.";
 		}
@@ -20,18 +20,19 @@
 		extract($_POST);
 		$update = $listanggota->updateAnggota($id_anggota, $nama, $no_hp, $alamat, $gender, $email);
 		if ($update) {
-			echo "Data berhasil di ubah";
+
+			header('Location: ../listAnggotaAdmin.php?p=ubah#popup2');
 		}else{
 			echo "Data gagal di ubah";
 		}
 	}
 	if (isset($_POST['Daftar'])) {
 		extract($_POST);
-		$tambah = $listanggota->registAnggota($id_anggota, $nama, $no_hp, $gender, $alamat, $email, $password);
-		if ($tambah) {
-			header('Berhasil Mendaftar');
+		$tambahAdmin = $listanggota->registAnggota($id_anggota, $nama, $no_hp, $gender, $alamat, $email, $password);
+		if ($tambahAdmin) {
+			header('Location: ../login.php?p=regist#popup1');
 		}else{
-			echo "Gagal Mendaftar";
+			header('Location: ../registrasi.php?p=gagalRegist#popup2');
 		}
 	}
 	break;

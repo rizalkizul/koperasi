@@ -73,10 +73,12 @@ class Listanggota{
 			$result = mysqli_query($this->db,$sql2);
 
 			if($sql2){
-   				 echo 'Anda berhasil mendaftar';
+			header('../login.php?p=regist#popup2');
    				 return $result;
+				return true;
 					}  else {
- 			     echo 'Anda gagal mendaftar, E-mail sudah terdaftar';
+ 			     // echo 'Anda gagal mendaftar, E-mail sudah terdaftar';
+						return false;
 					}
 			}
 	}

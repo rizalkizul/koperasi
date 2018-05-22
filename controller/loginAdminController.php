@@ -11,7 +11,8 @@
 			header('Location: ../homeAdmin.php');
 
 		}else{
-			echo "username atau password salah.";
+
+			header('Location: ../loginAdmin2.php#popup2');
 		}
 	}
 ?>
