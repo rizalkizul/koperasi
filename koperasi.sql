@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `anggota` (
   PRIMARY KEY (`id_anggota`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table koperasi.anggota: ~7 rows (approximately)
+-- Dumping data for table koperasi.anggota: ~10 rows (approximately)
 DELETE FROM `anggota`;
 /*!40000 ALTER TABLE `anggota` DISABLE KEYS */;
 INSERT INTO `anggota` (`id_anggota`, `nama`, `no_hp`, `gender`, `alamat`, `email`, `password`) VALUES
@@ -42,7 +42,14 @@ INSERT INTO `anggota` (`id_anggota`, `nama`, `no_hp`, `gender`, `alamat`, `email
 	('usr007', 'Luthfi Darmawan ', 'kjddkj', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'kjdhdk', 'kjhdkj'),
 	('usr008', 'Rakha Albarra Sidiq', '087718938581', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'rakha', 'admin'),
 	('usr009', 'Alam Setya', '087718938589', 'Pria', 'Rancaekek', 'alamsetya@gmail.com', NULL),
-	('usr010', 'Yogi Nurhayadi', '087718938588', 'Pria', 'Jalaprang', 'yoginurhayadi@gmail.com', 'yogi');
+	('usr010', 'Yogi Nurhayadi', '087718938588', 'Pria', 'Jalaprang', 'yoginurhayadi@gmail.com', 'yogi'),
+	('usr011', 'Rizki Lukman', '0877180938581', 'Pria', 'Ujung Berung', 'rizkilap@gmail.com', NULL),
+	('usr012', 'Gilang Septya', '087718093854', 'Pria', 'Tanjungsari', 'gilang@gmail.com', NULL),
+	('usr013', 'Himawan Sutanto', '087718093850', 'Pria', 'Ciganea', 'nto@gmail.com', NULL),
+	('usr014', 'Lutphi Pratama', '087718938589', 'Pria', 'Purwakarta', 'luthpi@mail.com', NULL),
+	('usr015', 'Arkan Muhafiz', '087718938578', 'Pria', 'Jl. Logan, Kordon', 'arkan@gmail.com', 'arkan'),
+	('usr016', 'Khalifah Falah', '087718938567', 'Pria', 'Jl. Puskopad Purwakarta', 'falah@gmail.com', 'falah'),
+	('usr017', 'Galang Agung Prayoga', '087718938543', 'Pria', 'Pamanukan Subang', 'galang@gmail.com', 'galang');
 /*!40000 ALTER TABLE `anggota` ENABLE KEYS */;
 
 
@@ -82,14 +89,14 @@ CREATE TABLE IF NOT EXISTS `pembayaran` (
   CONSTRAINT `FK_pembayaran_pengurus` FOREIGN KEY (`id_pengurus`) REFERENCES `pengurus` (`id_pengurus`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table koperasi.pembayaran: ~2 rows (approximately)
+-- Dumping data for table koperasi.pembayaran: ~4 rows (approximately)
 DELETE FROM `pembayaran`;
 /*!40000 ALTER TABLE `pembayaran` DISABLE KEYS */;
 INSERT INTO `pembayaran` (`id_pembayaran`, `id_anggota`, `id_pengurus`, `jenis`, `status`, `tanggal`, `nominal`) VALUES
-	('pmb001', 'usr001', 'st001', 'Wajib', 'Tunai', '2018-05-21 22:13:43', 100000),
+	('pmb001', 'usr016', 'st002', 'Wajib', 'Tunai', '2018-05-21 22:13:43', 100000),
 	('pmb002', 'usr010', 'st001', 'Sukarela', 'Transfer', '2018-05-21 22:15:20', 50000),
-	('pmb003', 'usr001', 'st002', 'Wajib', 'Tunai', '2018-05-22 13:02:40', 75000),
-	('pmb004', 'usr004', 'st001', 'Pria', 'Tunai', '2018-05-22 13:21:47', 50000);
+	('pmb003', 'usr001', 'st002', 'Pokok', 'Tunai', '2018-05-22 13:02:40', 75000),
+	('pmb004', 'usr012', 'st001', 'Sukarela', 'Tunai', '2018-05-22 22:05:53', 50000);
 /*!40000 ALTER TABLE `pembayaran` ENABLE KEYS */;
 
 
@@ -107,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `pengurus` (
   PRIMARY KEY (`id_pengurus`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table koperasi.pengurus: ~0 rows (approximately)
+-- Dumping data for table koperasi.pengurus: ~2 rows (approximately)
 DELETE FROM `pengurus`;
 /*!40000 ALTER TABLE `pengurus` DISABLE KEYS */;
 INSERT INTO `pengurus` (`id_pengurus`, `nama`, `noHP`, `gender`, `alamat`, `jabatan`, `email`, `password`) VALUES

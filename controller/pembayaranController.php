@@ -10,16 +10,17 @@
 		extract($_POST);
 		$pembayaranAction = $pembayaran->tambahPembayaran($id_pembayaran,$id_anggota,$id_pengurus,$jenis,$status,$nominal);
 		if ($pembayaranAction) {
-			echo "berhasil";
+			header('Location: ../tabelKeuanganAdmin.php?p=tambah#popup2');
 		}else{
 			echo "gagal";
 		}
 	}
 	if (isset($_POST['ubahPembayaran'])) {
 		extract($_POST);
-		$update = $pembayaran->ubahPembayaran($id_pembayaran,$jenis,$status,$nominal);
+		print_r($_POST);
+		$update = $pembayaran->ubahPembayaran($id_pembayaran,$id_anggota,$id_pengurus,$jenis,$status,$nominal);
 		if ($update) {
-			echo "Data berhasil di ubah";
+			header('Location: ../tabelKeuanganAdmin.php?p=ubah#popup2');
 		}else{
 			echo "Data gagal di ubah";
 		}
@@ -30,7 +31,7 @@
 		extract($_GET);
 		$hapus = $pembayaran->deletePembayaran($id_pembayaran);
 		if ($hapus) {
-			echo "berhasil hapus";
+			header('Location: ../tabelKeuanganAdmin.php?p=hapus#popup2');
 		} else{
 			echo "gagal hapus";
 		}
