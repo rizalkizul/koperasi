@@ -1,6 +1,7 @@
 <?php
 include_once "../controller/connection.php";
 
+
 class User{
 
 	public $db;
@@ -13,6 +14,15 @@ class User{
 		}
 	}
 
+	public function getSession(){
+		return $_SESSION['login'];
+	}
+
+	public function userLogout() {
+		$_SESSION['login'] = FALSE;
+	session_destroy();
+	}
+
 	public function checkLogin($email, $password){
 			$username = mysqli_real_escape_string($this->db,$_POST['email']);
 			$password = mysqli_real_escape_string($this->db,$_POST['password']);
@@ -23,6 +33,12 @@ class User{
 			$count_row = $result->num_rows;
 
 			if ($count_row == 1) {	
+				session_start();
+				$_SESSION['login'] = true;
+				$_SESSION['nama'] = $user_data['nama'];
+				$_SESSION['id_anggota'] = $user_data['id_anggota'];
+				return $_SESSION['nama'];
+				return $_SESSION['id_anggota'];
 					return true;
 					}else{
 				return false;

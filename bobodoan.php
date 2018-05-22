@@ -1,10 +1,8 @@
 <?php
-	$gender = 'pria';
-	echo $gender;
 
-	if ($gender == 'wanita') {
-		echo "string";
-	}else{
-		echo "s";
-	}
+
+$str = "Hello world. It's a beautiful day.";
+$result = (explode(" ",$str));
+echo $result[0];
+
 ?>

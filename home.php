@@ -12,6 +12,7 @@
 <body class="home">
 	<?php
 		include 'header.php';
+		include 'logout.php';
 	?>
 	<button id="btnListAnggota" type="submit"><a href="listAnggota.php"><img src="assets/img/listAnggota.png"></a><br>List<br>Anggota</button>
 

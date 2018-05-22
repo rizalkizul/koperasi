@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	
 	include_once '../class/pengguna.php';
 	$user = new User();
 
@@ -7,7 +7,9 @@
 		extract($_POST);
 		$login = $user->checkLogin($email, $password);
 		if ($login) {
+			session_start();
 			header('Location: ../home.php');
+
 		}else{
 			echo "username atau password salah.";
 		}

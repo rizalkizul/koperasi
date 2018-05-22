@@ -11,11 +11,13 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping database structure for koperasi
+DROP DATABASE IF EXISTS `koperasi`;
 CREATE DATABASE IF NOT EXISTS `koperasi` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `koperasi`;
 
 
 -- Dumping structure for table koperasi.anggota
+DROP TABLE IF EXISTS `anggota`;
 CREATE TABLE IF NOT EXISTS `anggota` (
   `id_anggota` varchar(10) NOT NULL,
   `nama` varchar(50) DEFAULT NULL,
@@ -31,18 +33,21 @@ CREATE TABLE IF NOT EXISTS `anggota` (
 DELETE FROM `anggota`;
 /*!40000 ALTER TABLE `anggota` DISABLE KEYS */;
 INSERT INTO `anggota` (`id_anggota`, `nama`, `no_hp`, `gender`, `alamat`, `email`, `password`) VALUES
-	('P001', 'Panji Fadilah', '08123456780', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'panjifadilah@gmail.com', 'admin'),
-	('P002', 'Dhea Imut', '087718938581', 'Wanita', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengahklk Kecamatan Antapani Kota Bandung', 'ksjdkdj', 'ksdj'),
-	('P003', 'Ijal Kijul', '098098', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung jdhjdh kkh ksjkdjks ksjksdjksjkd', 'kjhkjh', 'kjhj'),
-	('P004', 'Debi Dwitama Yusup', '098098', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'debidwitamayusup@gmail.com', 'lkhdlkdh'),
-	('P005', 'Dixy Abdurrahman Saleh jshdkjsh', 'kjhdkjhd', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'ldjhldkjh', 'jkdhdlkj'),
-	('P006', 'Luthfi Darmawan ', 'kjddkj', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'kjdhdk', 'kjhdkj'),
-	('S001', 'Rakha Albarra Sidiq', '087718938581', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'rakha', 'admin'),
-	('usr001', 'Helmi Marliawati', '087718938581', 'Wanita', 'Jl. SItulengkong no.1 Kelurahan Cijagra Kecamatan Lengkong Kota Bandung', 'justkimiw@gmail.com', 'Platyhelminthes03');
+	('usr001', 'Helmi Marliawati', '087718938581', 'Wanita', 'Jl. Situlengkong no.1 Kelurahan Cijagra Kecamatan Lengkong Kota Bandung', 'justkimiw@gmail.com', 'Platyhelminthes03'),
+	('usr002', 'Panji Fadilah', '08123456780', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'panjifadilah@gmail.com', 'admin'),
+	('usr003', 'Dhea Imuts', '087718938581', 'Wanita', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengahklk Kecamatan Antapani Kota Bandung', 'ksjdkdj', 'ksdj'),
+	('usr004', 'Ijal Kijul', '098098', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung jdhjdh kkh ksjkdjks ksjksdjksjkd', 'kjhkjh', 'kjhj'),
+	('usr005', 'Debi Dwitama Yusup', '098098', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'debidwitamayusup@gmail.com', 'lkhdlkdh'),
+	('usr006', 'Dixy Abdurrahman Saleh jshdkjsh', 'kjhdkjhd', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'ldjhldkjh', 'jkdhdlkj'),
+	('usr007', 'Luthfi Darmawan ', 'kjddkj', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'kjdhdk', 'kjhdkj'),
+	('usr008', 'Rakha Albarra Sidiq', '087718938581', 'Pria', 'Jl. Cikampek VII No.1 Kelurahan Antapani Tengah Kecamatan Antapani Kota Bandung', 'rakha', 'admin'),
+	('usr009', 'Alam Setya', '087718938589', 'Pria', 'Rancaekek', 'alamsetya@gmail.com', NULL),
+	('usr010', 'Yogi Nurhayadi', '087718938588', 'Pria', 'Jalaprang', 'yoginurhayadi@gmail.com', 'yogi');
 /*!40000 ALTER TABLE `anggota` ENABLE KEYS */;
 
 
 -- Dumping structure for table koperasi.dashboard
+DROP TABLE IF EXISTS `dashboard`;
 CREATE TABLE IF NOT EXISTS `dashboard` (
   `id_dashboard` varchar(10) NOT NULL,
   `id_pengguna` varchar(10) DEFAULT NULL,
@@ -61,6 +66,7 @@ DELETE FROM `dashboard`;
 
 
 -- Dumping structure for table koperasi.pembayaran
+DROP TABLE IF EXISTS `pembayaran`;
 CREATE TABLE IF NOT EXISTS `pembayaran` (
   `id_pembayaran` varchar(10) NOT NULL,
   `id_anggota` varchar(10) NOT NULL,
@@ -76,16 +82,19 @@ CREATE TABLE IF NOT EXISTS `pembayaran` (
   CONSTRAINT `FK_pembayaran_pengurus` FOREIGN KEY (`id_pengurus`) REFERENCES `pengurus` (`id_pengurus`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table koperasi.pembayaran: ~0 rows (approximately)
+-- Dumping data for table koperasi.pembayaran: ~2 rows (approximately)
 DELETE FROM `pembayaran`;
 /*!40000 ALTER TABLE `pembayaran` DISABLE KEYS */;
 INSERT INTO `pembayaran` (`id_pembayaran`, `id_anggota`, `id_pengurus`, `jenis`, `status`, `tanggal`, `nominal`) VALUES
-	('pmb001', 'P004', 'st001', 'Wajib', 'Tunai', '2018-05-21 22:13:43', 100000),
-	('pmb002', 'usr001', 'st001', 'Sukarela', 'Transfer', '2018-05-21 22:15:20', 50000);
+	('pmb001', 'usr001', 'st001', 'Wajib', 'Tunai', '2018-05-21 22:13:43', 100000),
+	('pmb002', 'usr010', 'st001', 'Sukarela', 'Transfer', '2018-05-21 22:15:20', 50000),
+	('pmb003', 'usr001', 'st002', 'Wajib', 'Tunai', '2018-05-22 13:02:40', 75000),
+	('pmb004', 'usr004', 'st001', 'Pria', 'Tunai', '2018-05-22 13:21:47', 50000);
 /*!40000 ALTER TABLE `pembayaran` ENABLE KEYS */;
 
 
 -- Dumping structure for table koperasi.pengurus
+DROP TABLE IF EXISTS `pengurus`;
 CREATE TABLE IF NOT EXISTS `pengurus` (
   `id_pengurus` varchar(6) NOT NULL,
   `nama` varchar(50) DEFAULT NULL,
@@ -98,11 +107,12 @@ CREATE TABLE IF NOT EXISTS `pengurus` (
   PRIMARY KEY (`id_pengurus`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table koperasi.pengurus: ~1 rows (approximately)
+-- Dumping data for table koperasi.pengurus: ~0 rows (approximately)
 DELETE FROM `pengurus`;
 /*!40000 ALTER TABLE `pengurus` DISABLE KEYS */;
 INSERT INTO `pengurus` (`id_pengurus`, `nama`, `noHP`, `gender`, `alamat`, `jabatan`, `email`, `password`) VALUES
-	('st001', 'Nurun Ala Nurin', '087718938581', 'Wanita', 'Jelekong', 'Bendahara', 'polin@gmail.com', 'polinpolinumat');
+	('st001', 'Nurun Ala Nurin', '087718938581', 'Wanita', 'Jelekong', 'Bendahara', 'polin@gmail.com', 'polinpolinumat'),
+	('st002', 'Rizkiki', '087718938587', 'Pria', 'Buah Batu', 'Staff', 'rizkiki@gmail.com', 'ikiw');
 /*!40000 ALTER TABLE `pengurus` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
