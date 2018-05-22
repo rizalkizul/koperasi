@@ -372,6 +372,17 @@ input[type=text], input[type=password] {
     font-family: monospace;
     outline: none;
 }
+.selectTabelKeu {
+    width: 300px;
+    height: 47px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    font-family: monospace;
+    outline: none;
+}
 .ids {
     width: 300px;
     height: 30px;

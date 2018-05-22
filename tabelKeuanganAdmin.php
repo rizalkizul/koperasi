@@ -8,6 +8,23 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+		    $('#tabelKeuangan tr').click(function() {
+		        var href = $(this).find("a").attr("href");
+		        if(href) {
+		            window.location = href;
+		        }
+		    });
+
+		});
+	</script>
+<script type="text/javascript">
+		var index = iDisplayIndex +1;
+	$('td:eq(0)',nRow).html(index);
+	return nRow;
+	</script>
 </head>
 <body class="mainBody">
 	<?php
@@ -33,7 +50,7 @@
 			</thead>
 			</table>
 				<div style="overflow: auto;height: 240px;">
-				<table class="main css-serial">
+				<table class="main css-serial" id="tabelKeuangan">
 					<tbody style="overflow: auto;height: 50px;">
 						 <?php
 						 	$link = mysqli_connect("localhost", "root", "", "koperasi");
@@ -41,7 +58,7 @@
 							// $id_pengguna = mysqli_fetch_array($result,MYSQLI_ASSOC);
 						 	while	($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 						 		echo "	<tr class=\"main\">
-						 					<td class=\"noKeu\"></td>
+						 					<td class=\"noKeu\"><a class=\"link\" href=\"tabelKeuanganAdmin.php?id_pembayaran=$row[id_pembayaran]\"></a></td>
 						 					<td class=\"idKeu\">$row[id_pembayaran]</td>
 						 					<td class=\"idAnggotaKeu\">$row[id_anggota]</td>
 						 					<td class=\"namaAnggotaKeu\">$row[nama_anggota]</td>
@@ -50,7 +67,7 @@
 						 					<td class=\"jenisKeu\">$row[jenis]</td>
 						 					<td class=\"statusKeu\">$row[status]</td>
 						 					<td class=\"tanggalKeu\">$row[tanggal]</td>
-						 					<td class=\"nominalKeu\">Rp. $row[nominal],- <span style=\"float:right;\"> <a href=\"controller/\" onClick=\"return confirm('Anda yakin ingin menghapus data?')\"> <img style=\"height:30px;\" src=\"assets/img/delete.png\"> </a> </span></td>
+						 					<td class=\"nominalKeu\">Rp. $row[nominal],- <span style=\"float:right;\"> <a href=\"pembayaranController?p=hapus&id_pembayaran=$row[id_pembayaran]\" onClick=\"return confirm('Anda yakin ingin menghapus data?')\"> <img style=\"height:30px;\" src=\"assets/img/delete.png\"> </a> </span></td>
 						 				</tr>
 						 		";
 						 	}
@@ -59,22 +76,122 @@
 				 	</tbody>
 				 </table>
 			</div>
-		  
-		</table>
+			<?php
+				if (isset($_GET['id_pembayaran'])) {
+					$idididididididid = $_GET['id_pembayaran'];
+					$link = mysqli_connect("localhost", "root", "", "koperasi");
+					$result = mysqli_query($link,"SELECT pembayaran.*,anggota.nama as nama_anggota,pengurus.nama as nama_pengurus FROM pembayaran,anggota, pengurus WHERE pembayaran.id_anggota=anggota.id_anggota AND pembayaran.id_pengurus=pengurus.id_pengurus AND pembayaran.id_pembayaran='$idididididididid';");
+					if ($datas = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+						$id_pembayaran	= $datas['id_pembayaran'];
+						$id_anggota = $datas['id_anggota'];
+						$id_pengurus = $datas['id_pengurus'];
+						$jenis = $datas['jenis'];
+						$status = $datas['status'];
+						$nominal = $datas['nominal'];
+					}
+			?>
 	<form action="controller/pembayaranController.php" method="post">
 		<table class="form">
 			<tr>
 				<th class="form1">
-					<input type="text" placeholder="ID Pembayaran" name="id_pembayaran" required>
+					<input type="text" placeholder="ID Pembayaran" name="id_pembayaran" value="<?php echo "$id_pembayaran"?>" readonly="true" required>
+				    <br>
+				    <?php
+				    $link = mysqli_connect("localhost", "root", "", "koperasi");
+					$results = mysqli_query($link,"SELECT id_anggota, nama FROM anggota;");
+					echo "<select class =\"selectTabelKeu\">";
+					while	($result1 = mysqli_fetch_array($results,MYSQLI_ASSOC)){
+						echo "<option value=\"$result1[id_anggota]\">$result1[id_anggota]	$result1[nama]</option>";
+					}
+					echo "</select>";
+
+				    ?>
+				    <br>
+				    <?php
+				    $link = mysqli_connect("localhost", "root", "", "koperasi");
+					$resultss = mysqli_query($link,"SELECT id_pengurus, nama FROM pengurus;");
+					echo "<select class =\"selectTabelKeu\">";
+					while	($result2 = mysqli_fetch_array($resultss,MYSQLI_ASSOC)){
+						echo "<option value=\"$result1[id_anggota]\">$result2[id_pengurus]	$result2[nama]</option>";
+					}
+					echo "</select>";
+
+				    ?>
+				    <br><!-- 
+				    <input type="text" placeholder="Jenis" name="jenis" required> -->
+				    <?php
+				    if ($jenis == "Wajib") {
+				    echo "
+				    <input type=\"radio\" name=\"jenis\" value=\"Pria\" checked>Wajib</input> <span style=\"padding-left: 50px\">
+				    <input type=\"radio\" name=\"jenis\" value=\"Pokok\">Pokok</input></span>
+				    <span style=\"padding-left: 50px\"><input type=\"radio\" name=\"jenis\" value=\"Sukarela\">Sukarela</input></span>";
+					}
+					elseif ($jenis == "Pokok") {
+				    echo "
+				    <input type=\"radio\" name=\"jenis\" value=\"Pria\"d>Wajib</input> <span style=\"padding-left: 50px\">
+				    <input type=\"radio\" name=\"jenis\" value=\"Pokok\" checked>Pokok</input></span>
+				    <span style=\"padding-left: 50px\"><input type=\"radio\" name=\"jenis\" value=\"Sukarela\">Sukarela</input></span>";
+					}
+					else{
+				    echo "
+				    <input type=\"radio\" name=\"jenis\" value=\"Pria\"d>Wajib</input> <span style=\"padding-left: 50px\">
+				    <input type=\"radio\" name=\"jenis\" value=\"Pokok\">Pokok</input></span>
+				    <span style=\"padding-left: 50px\"><input type=\"radio\" name=\"jenis\" value=\"Sukarela\" checked>Sukarela</input></span>";
+					}
+				    ?>
+				</th>
+				<th class="form2">
+					<input type="text" placeholder="Status" name="status" value="<?php echo "$status"?>" required>
+				    <br>
+				    <input type="text" placeholder="Nominal" name="nominal" value="<?php echo "$nominal"?>" required>
+				    <br>
+				    <div class="divBtnUbah">
+				    	<button id="btnUbah" type="submit" name="tambahPembayaran">Ubah</button>
+				    </div>
+				    <!-- <button id="btnCancel" type="reset" value="reset">Batal</button> -->
+				</th>
+			</tr>		
+		</table>
+	</form>	
+	<a href="tabelKeuanganAdmin.php"><button id="btnCancel">Batal</button></a>
+
+	<?php
+		}else{
+	?>
+	<form action="controller/pembayaranController.php" method="post">
+		<table class="form">
+			<tr>
+				<th class="form1">
+					<?php
+					$link = mysqli_connect("localhost", "root", "", "koperasi");
+					$sqlEd = mysqli_query($link,"select id_pembayaran from pembayaran order by id_pembayaran desc limit 1;");
+					$dataID = mysqli_fetch_array($sqlEd, MYSQLI_ASSOC);
+					$splitID = $dataID['id_pembayaran'];
+					$trimmed= trim($splitID,"pmb");
+					$summed = $trimmed + 1;
+					$length = strlen($summed);
+
+					if ($length == 1) {
+						echo "<input class=\"ids\" type=\"text\" placeholder=\"ID\" name=\"id_pembayaran\" value=\"pmb00$summed\" readonly=\"true\" required>";
+					}
+					elseif ($length == 2) {
+						echo "<input class=\"ids\" type=\"text\" placeholder=\"ID\" name=\"id_pembayaran\" value=\"pmb0$summed\" readonly=\"true\" required>";
+					}
+					elseif ($length == 3) {
+						echo "<input class=\"ids\" type=\"text\" placeholder=\"ID\" name=\"id_pembayaran\" value=\"pmb$summed\" readonly=\"true\" required>";
+					}
+				?>
 				    <br>
 				    <input type="text" placeholder="ID Anggota" name="id_anggota" required>
 				    <br>
 				    <input type="text" placeholder="ID Staff" name="id_pengurus" required>
 				    <br><!-- 
 				    <input type="text" placeholder="Jenis" name="jenis" required> -->
-				    <input type="radio" name="jenis" value="Pria">Wajib</input> <span style="padding-left: 50px">
+
+				    <input type="radio" name="jenis" value="Pria"d>Wajib</input> <span style="padding-left: 50px">
 				    <input type="radio" name="jenis" value="Pokok">Pokok</input></span>
 				    <span style="padding-left: 50px"><input type="radio" name="jenis" value="Sukarela">Sukarela</input></span>
+					
 				</th>
 				<th class="form2">
 					<input type="text" placeholder="Status" name="status" required>
@@ -89,7 +206,9 @@
 			</tr>		
 		</table>
 	</form>	
+	<?php
+	}
+	?>
 	</div>
-	
 </body>
 </html>
