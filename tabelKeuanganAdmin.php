@@ -67,7 +67,7 @@
 						 					<td class=\"jenisKeu\">$row[jenis]</td>
 						 					<td class=\"statusKeu\">$row[status]</td>
 						 					<td class=\"tanggalKeu\">$row[tanggal]</td>
-						 					<td class=\"nominalKeu\">Rp. $row[nominal],- <span style=\"float:right;\"> <a href=\"pembayaranController?p=hapus&id_pembayaran=$row[id_pembayaran]\" onClick=\"return confirm('Anda yakin ingin menghapus data?')\"> <img style=\"height:30px;\" src=\"assets/img/delete.png\"> </a> </span></td>
+						 					<td class=\"nominalKeu\">Rp. $row[nominal],- <span style=\"float:right;\"> <a href=\"controller/pembayaranController.php?p=hapus&id_pembayaran=$row[id_pembayaran]\" onClick=\"return confirm('Anda yakin ingin menghapus data?')\"> <img style=\"height:30px;\" src=\"assets/img/delete.png\"> </a> </span></td>
 						 				</tr>
 						 		";
 						 	}
@@ -122,19 +122,19 @@
 				    <?php
 				    if ($jenis == "Wajib") {
 				    echo "
-				    <input type=\"radio\" name=\"jenis\" value=\"Pria\" checked>Wajib</input> <span style=\"padding-left: 50px\">
+				    <input type=\"radio\" name=\"jenis\" value=\"Wajib\" checked>Wajib</input> <span style=\"padding-left: 50px\">
 				    <input type=\"radio\" name=\"jenis\" value=\"Pokok\">Pokok</input></span>
 				    <span style=\"padding-left: 50px\"><input type=\"radio\" name=\"jenis\" value=\"Sukarela\">Sukarela</input></span>";
 					}
 					elseif ($jenis == "Pokok") {
 				    echo "
-				    <input type=\"radio\" name=\"jenis\" value=\"Pria\"d>Wajib</input> <span style=\"padding-left: 50px\">
+				    <input type=\"radio\" name=\"jenis\" value=\"Wajib\"d>Wajib</input> <span style=\"padding-left: 50px\">
 				    <input type=\"radio\" name=\"jenis\" value=\"Pokok\" checked>Pokok</input></span>
 				    <span style=\"padding-left: 50px\"><input type=\"radio\" name=\"jenis\" value=\"Sukarela\">Sukarela</input></span>";
 					}
 					else{
 				    echo "
-				    <input type=\"radio\" name=\"jenis\" value=\"Pria\"d>Wajib</input> <span style=\"padding-left: 50px\">
+				    <input type=\"radio\" name=\"jenis\" value=\"Wajib\"d>Wajib</input> <span style=\"padding-left: 50px\">
 				    <input type=\"radio\" name=\"jenis\" value=\"Pokok\">Pokok</input></span>
 				    <span style=\"padding-left: 50px\"><input type=\"radio\" name=\"jenis\" value=\"Sukarela\" checked>Sukarela</input></span>";
 					}
@@ -146,7 +146,7 @@
 				    <input type="text" placeholder="Nominal" name="nominal" value="<?php echo "$nominal"?>" required>
 				    <br>
 				    <div class="divBtnUbah">
-				    	<button id="btnUbah" type="submit" name="tambahPembayaran">Ubah</button>
+				    	<button id="btnUbah" type="submit" name="ubahPembayaran" value="ubahPembayaran">Ubah</button>
 				    </div>
 				    <!-- <button id="btnCancel" type="reset" value="reset">Batal</button> -->
 				</th>

@@ -36,7 +36,7 @@ class Listanggota{
 
 	public function deleteAnggota($id_anggota){
 		$id_anggota = mysqli_escape_string($this->db,$_GET['id_anggota']);
-		$sqlhapus= "DELETE FROM pengguna where id_anggota= '$id_anggota'";
+		$sqlhapus= "DELETE FROM anggota where id_anggota= '$id_anggota'";
 		$result = mysqli_query($this->db,$sqlhapus);
 		return $result;
 	}

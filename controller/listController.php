@@ -37,7 +37,6 @@
 	}
 	break;
 	case "hapus":
-	echo "bebas";
 	if (isset($_GET['id_anggota'])){
 		extract($_GET);
 		$hapus = $listanggota->deleteAnggota($id_anggota);
