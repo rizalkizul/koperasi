@@ -60,27 +60,30 @@
 			</div>
 		  
 		</table>
-	<form action="controller/listController.php" method="post">
+	<form action="controller/pembayaranController.php" method="post">
 		<table class="form">
 			<tr>
 				<th class="form1">
-					<input type="text" placeholder="ID" name="id_pembayaran" required>
+					<input type="text" placeholder="ID Pembayaran" name="id_pembayaran" required>
 				    <br>
-				    <input type="text" placeholder="Nominal" name="nominal" required>
+				    <input type="text" placeholder="ID Anggota" name="id_anggota" required>
 				    <br>
-				    <input type="text" placeholder="Tanggal" name="tgl_pembayaran" required>
-				    <br>
-				    <input type="text" placeholder="Jenis" name="jenis" required>
+				    <input type="text" placeholder="ID Staff" name="id_pengurus" required>
+				    <br><!-- 
+				    <input type="text" placeholder="Jenis" name="jenis" required> -->
+				    <input type="radio" name="jenis" value="Pria">Wajib</input> <span style="padding-left: 50px">
+				    <input type="radio" name="jenis" value="Pokok">Pokok</input></span>
+				    <span style="padding-left: 50px"><input type="radio" name="jenis" value="Sukarela">Sukarela</input></span>
 				</th>
 				<th class="form2">
 					<input type="text" placeholder="Status" name="status" required>
 				    <br>
-				    <input type="text" placeholder="Penerima" name="penerima" required>
+				    <input type="text" placeholder="Nominal" name="nominal" required>
 				    <br>
 				    <div class="divBtnUbah">
-				    	<button id="btnUbah" type="submit" name="Update_pembayaran" value="Update_pembayaran">Ubah</button>
+				    	<button id="btnUbah" type="submit" name="tambahPembayaran">Tambah</button>
 				    </div>
-				    <button id="btnCancel" type="reset" value="reset">Batal</button>
+				    <!-- <button id="btnCancel" type="reset" value="reset">Batal</button> -->
 				</th>
 			</tr>		
 		</table>

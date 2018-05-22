@@ -128,14 +128,13 @@ $(document).ready(function() {
 				    <input type="text" placeholder="Email" name="email" value="<?php echo "$email"?>" required>
 				    <br>
 				    <div class="divBtnTambahListAnggota">
-				    	<button id="btnUbah" type="submit" name="submit" value="Submit">Tambah</button>
+				    	<button id="btnUbah" type="submit" name="Update">Ubah</button>
 				    </div>
-				    <button id="btnUbahListAnggota" type="submit" name="Update">Ubah</button>
 				</th>
 			</tr>		
 		</table>
 	</form>	
-	<button id="btnCancel" type="reset" value="Reset">Bersihkan Field</button>
+					<a href="listAnggota.php"><button id="btnCancel">Batal Ubah</button></a>
 	<?php
 }
 }else{ ?>

@@ -1,5 +1,5 @@
 <?php
-include "../controller/connection.php";
+include_once "../controller/connection.php";
 
 class User{
 
@@ -16,7 +16,7 @@ class User{
 	public function checkLogin($email, $password){
 			$username = mysqli_real_escape_string($this->db,$_POST['email']);
 			$password = mysqli_real_escape_string($this->db,$_POST['password']);
-			$sql2="SELECT * from pengguna WHERE email='$email' and password='$password'";
+			$sql2="SELECT * from anggota WHERE email='$email' and password='$password'";
 
 			$result = mysqli_query($this->db,$sql2);
 			$user_data = mysqli_fetch_array($result);
