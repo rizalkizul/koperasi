@@ -160,7 +160,7 @@
 	<h1 id="headingLogin1">Selangkah Lagi</h1>
 	<h1 id="headingLogin2">Mejadi Bagian dari Kami</h1>
 
-	<form id="registerForm" action="controller/listController.php" method="post">
+	<form id="registerForm" action="controller/loginAdminController.php" method="post">
 		<table class="form">
 			<tr>
 				<th class="spanReg">
@@ -169,25 +169,27 @@
 					Nama
 					<br><br>
 					Alamat
+					<br><br><br><br>
+					Jabatan
 				</th>
 				<th class="form1">
 					<?php
 					$link = mysqli_connect("localhost", "root", "", "koperasi");
-					$sqlEd = mysqli_query($link,"select id_anggota from anggota order by id_anggota desc limit 1;");
+					$sqlEd = mysqli_query($link,"select id_pengurus from pengurus order by id_pengurus desc limit 1;");
 					$dataID = mysqli_fetch_array($sqlEd, MYSQLI_ASSOC);
-					$splitID = $dataID['id_anggota'];
-					$trimmed= trim($splitID,"usr");
+					$splitID = $dataID['id_pengurus'];
+					$trimmed= trim($splitID,"st");
 					$summed = $trimmed + 1;
 					$length = strlen($summed);
 
 					if ($length == 1) {
-						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_anggota\" value=\"usr00$summed\" readonly=\"true\" required>";
+						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_pengurus\" value=\"st00$summed\" readonly=\"true\" required>";
 					}
 					elseif ($length == 2) {
-						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_anggota\" value=\"usr0$summed\" readonly=\"true\" required>";
+						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_pengurus\" value=\"st0$summed\" readonly=\"true\" required>";
 					}
 					elseif ($length == 3) {
-						echo "<input style=\"background-color:#ccc\" style=\"background-color=#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_anggota\" value=\"usr$summed\" readonly=\"true\" required>";
+						echo "<input style=\"background-color:#ccc\" style=\"background-color=#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_pengurus\" value=\"st$summed\" readonly=\"true\" required>";
 					}
 				?>
 					<!-- <input type="text" placeholder="ID" name="id_pengguna" required> -->
@@ -195,6 +197,8 @@
 				    <input type="text" placeholder="Nama" name="nama" required>
 				    <br>
 				    <textarea style="font-family: monospace;" name="alamat" placeholder="Alamat" required=""></textarea>
+				    <br>
+				    <input type="text" placeholder="Jabatan" name="jabatan" required>
 				</th>
 				<th class="spanReg2">
 					No. HP
@@ -245,7 +249,7 @@ case "regist":
 		</div>
 	</div>
 </div>	
-	<form action="controller/listController.php" method="post">
+	<form action="controller/loginAdminController.php" method="post">
 		<table class="form">
 			<tr>
 				<th class="spanReg">
@@ -258,21 +262,21 @@ case "regist":
 				<th class="form1">
 					<?php
 					$link = mysqli_connect("localhost", "root", "", "koperasi");
-					$sqlEd = mysqli_query($link,"select id_anggota from anggota order by id_anggota desc limit 1;");
+					$sqlEd = mysqli_query($link,"select id_pengurus from pengurus order by id_pengurus desc limit 1;");
 					$dataID = mysqli_fetch_array($sqlEd, MYSQLI_ASSOC);
-					$splitID = $dataID['id_anggota'];
-					$trimmed= trim($splitID,"usr");
+					$splitID = $dataID['id_pengurus'];
+					$trimmed= trim($splitID,"st");
 					$summed = $trimmed + 1;
 					$length = strlen($summed);
 
 					if ($length == 1) {
-						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_anggota\" value=\"usr00$summed\" readonly=\"true\" required>";
+						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_pengurus\" value=\"st00$summed\" readonly=\"true\" required>";
 					}
 					elseif ($length == 2) {
-						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_anggota\" value=\"usr0$summed\" readonly=\"true\" required>";
+						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_pengurus\" value=\"st0$summed\" readonly=\"true\" required>";
 					}
 					elseif ($length == 3) {
-						echo "<input style=\"background-color:#ccc\" style=\"background-color=#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_anggota\" value=\"usr$summed\" readonly=\"true\" required>";
+						echo "<input style=\"background-color:#ccc\" style=\"background-color=#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_pengurus\" value=\"st$summed\" readonly=\"true\" required>";
 					}
 				?>
 					<!-- <input type="text" placeholder="ID" name="id_pengguna" required> -->
@@ -280,6 +284,8 @@ case "regist":
 				    <input type="text" placeholder="Nama" name="nama" required>
 				    <br>
 				    <textarea style="font-family: monospace;" name="alamat" placeholder="Alamat" required=""></textarea>
+				    <br>
+				    <input type="text" placeholder="Jabatan" name="jabatan" required>
 				</th>
 				<th class="spanReg2">
 					No. HP
@@ -329,7 +335,7 @@ case "gagalRegist":?>
 		</div>
 	</div>
 </div>	
-	<form action="controller/listController.php" method="post">
+	<form action="controller/loginAdminController.php" method="post">
 		<table class="form">
 			<tr>
 				<th class="spanReg">
@@ -338,25 +344,27 @@ case "gagalRegist":?>
 					Nama
 					<br><br>
 					Alamat
+					<br><br><br><br>
+					Jabatan
 				</th>
 				<th class="form1">
 					<?php
 					$link = mysqli_connect("localhost", "root", "", "koperasi");
-					$sqlEd = mysqli_query($link,"select id_anggota from anggota order by id_anggota desc limit 1;");
+					$sqlEd = mysqli_query($link,"select id_pengurus from pengurus order by id_pengurus desc limit 1;");
 					$dataID = mysqli_fetch_array($sqlEd, MYSQLI_ASSOC);
-					$splitID = $dataID['id_anggota'];
-					$trimmed= trim($splitID,"usr");
+					$splitID = $dataID['id_pengurus'];
+					$trimmed= trim($splitID,"st");
 					$summed = $trimmed + 1;
 					$length = strlen($summed);
 
 					if ($length == 1) {
-						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_anggota\" value=\"usr00$summed\" readonly=\"true\" required>";
+						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_pengurus\" value=\"st00$summed\" readonly=\"true\" required>";
 					}
 					elseif ($length == 2) {
-						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_anggota\" value=\"usr0$summed\" readonly=\"true\" required>";
+						echo "<input style=\"background-color:#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_pengurus\" value=\"st0$summed\" readonly=\"true\" required>";
 					}
 					elseif ($length == 3) {
-						echo "<input style=\"background-color:#ccc\" style=\"background-color=#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_anggota\" value=\"usr$summed\" readonly=\"true\" required>";
+						echo "<input style=\"background-color:#ccc\" style=\"background-color=#ccc\" class=\"idss\" type=\"text\" placeholder=\"ID\" name=\"id_pengurus\" value=\"st$summed\" readonly=\"true\" required>";
 					}
 				?>
 					<!-- <input type="text" placeholder="ID" name="id_pengguna" required> -->
@@ -364,6 +372,8 @@ case "gagalRegist":?>
 				    <input type="text" placeholder="Nama" name="nama" required>
 				    <br>
 				    <textarea style="font-family: monospace;" name="alamat" placeholder="Alamat" required=""></textarea>
+				    <br>
+				    <input type="text" placeholder="Jabatan" name="jabatan" required>
 				</th>
 				<th class="spanReg2">
 					No. HP

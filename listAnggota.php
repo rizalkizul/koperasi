@@ -37,7 +37,7 @@ $(document).ready(function() {
 <body class="mainBody">
 	<?php
 		include 'header.php';
-		
+
 		include 'logout.php';
 	?>
 	<h1 class="judulTabel">List Anggota Koperasi</h1>
@@ -56,7 +56,7 @@ $(document).ready(function() {
 				  </tr>
 				</thead>
 			</table>
-			<div style="overflow: auto;height: 500px;">
+			<div style="overflow: auto;height: 400px;">
 				<table class="main css-serial" id="listAnggota">
 					<tbody style="overflow: auto;height: 240px;">
 						 <?php
@@ -81,6 +81,7 @@ $(document).ready(function() {
 						 ?>
 				 	</tbody>
 				 </table>
+				 </div>
 	
 </body>
 </html>

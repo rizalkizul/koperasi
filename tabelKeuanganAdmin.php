@@ -84,7 +84,7 @@
 <body class="mainBody">
 	<?php
 		include 'headerAdmin.php';
-		include 'logout.php';
+		include 'logoutAdmin.php';
 	?>
 	<h1 class="judulTabel">Tabel Keuangan</h1>
 	<div class="container">
@@ -165,15 +165,15 @@
 				    ?>
 				    <br>
 				    <?php
-				    $link = mysqli_connect("localhost", "root", "", "koperasi");
+				     $link = mysqli_connect("localhost", "root", "", "koperasi");
 					$resultss = mysqli_query($link,"SELECT id_pengurus, nama FROM pengurus;");
-					$result3 = mysqli_fetch_array($resultss,MYSQLI_ASSOC);
 					echo "<select name=\"id_pengurus\" class=\"selectTabelKeu\">
 					<option value=\"$id_pengurus\">$id_pengurus</option>";
 					while	($result2 = mysqli_fetch_array($resultss,MYSQLI_ASSOC)){
 						echo "<option value=\"$result2[id_pengurus]\">$result2[id_pengurus]	$result2[nama]</option>";
 					}
 					echo "</select>";
+
 
 				    ?>
 				    <br><!-- 
@@ -297,7 +297,7 @@ case "tambah":
 <body class="mainBody">
 	<?php
 		include 'headerAdmin.php';
-		include 'logout.php';
+		include 'logoutAdmin.php';
 	?>
 	<h1 class="judulTabel">Tabel Keuangan</h1>
 
@@ -519,7 +519,7 @@ case "tambah":
 <body class="mainBody">
 	<?php
 		include 'headerAdmin.php';
-		include 'logout.php';
+		include 'logoutAdmin.php';
 	?>
 	<h1 class="judulTabel">Tabel Keuangan</h1>
 
@@ -740,7 +740,7 @@ case "hapus":
 <body class="mainBody">
 	<?php
 		include 'headerAdmin.php';
-		include 'logout.php';
+		include 'logoutAdmin.php';
 	?>
 	<h1 class="judulTabel">Tabel Keuangan</h1>
 

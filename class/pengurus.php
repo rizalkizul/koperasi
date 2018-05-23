@@ -45,5 +45,36 @@ class Pengurus{
 			}
 	}		
 
+	public function registAdmin($id_pengurus, $nama, $no_hp, $gender, $alamat, $jabatan, $email, $password){
+			$id_anggota = mysqli_real_escape_string($this->db,$_POST['id_anggota']);
+			$nama = mysqli_real_escape_string($this->db,$_POST['nama']);
+			$no_hp = mysqli_real_escape_string($this->db,$_POST['no_hp']);
+			$alamat = mysqli_real_escape_string($this->db,$_POST['alamat']);
+			$alamat = mysqli_real_escape_string($this->db,$_POST['jabatan']);
+			$gender = mysqli_real_escape_string($this->db,$_POST['gender']);
+			$email = mysqli_real_escape_string($this->db,$_POST['email']);
+			$password = mysqli_real_escape_string($this->db,$_POST['password']);
+
+			$sql1="SELECT * FROM pengurus WHERE email='$email'";
+			$check = $this->db->query($sql1) ;
+			$count_row = $check->num_rows;
+
+			if ($count_row == 0){
+				$sql2="INSERT INTO pengurus (id_pengurus, nama, noHP, alamat, jabatan, gender, email, password) VALUES ('$id_pengurus', '$nama', '$no_hp', '$alamat', 'jabatan', '$gender', '$email', '$password')";
+
+			$result = mysqli_query($this->db,$sql2);
+
+			if($sql2){
+			header('../loginAdmin.php?p=regist#popup2');
+   				 return $result;
+				return true;
+					}  else {
+ 			     // echo 'Anda gagal mendaftar, E-mail sudah terdaftar';
+						return false;
+					}
+			}
+	}
+
+
 }
 ?>

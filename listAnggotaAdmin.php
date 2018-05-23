@@ -94,7 +94,7 @@ $(document).ready(function() {
 <body class="mainBody">
 	<?php
 		include 'headerAdmin.php';
-		include 'logout.php';
+		include 'logoutAdmin.php';
 	?>
 	<h1 class="judulTabel">List Anggota Koperasi</h1>
 	<div class="container">
@@ -258,7 +258,7 @@ $(document).ready(function() {
 <body class="mainBody">
 	<?php
 		include 'headerAdmin.php';
-		include 'logout.php';
+		include 'logoutAdmin.php';
 	?>
 	<h1 class="judulTabel">List Anggota Koperasi</h1>
 
@@ -432,7 +432,7 @@ $(document).ready(function() {
 <body class="mainBody">
 	<?php
 		include 'headerAdmin.php';
-		include 'logout.php';
+		include 'logoutAdmin.php';
 	?>
 	<h1 class="judulTabel">List Anggota Koperasi</h1>
 
