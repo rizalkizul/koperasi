@@ -16,7 +16,7 @@
 
 	  <div class="containerLogin">
 	  <form action="controller/loginAdminController.php" method="post">
-	    <input type="text" placeholder="Enter Username" name="email" required>
+	    <input type="text" placeholder="Enter Email" name="email" required>
 	    <br>
 	    <input type="password" placeholder="Enter Password" name="password" required>
 	    <br>   

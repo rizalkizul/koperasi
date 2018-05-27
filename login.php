@@ -82,7 +82,7 @@
 
 	  <div class="containerLogin">
 	  <form action="controller/logincontroller.php" method="post">
-	    <input type="text" placeholder="Enter Username" name="email" required>
+	    <input type="text" placeholder="Enter Email" name="email" required>
 	    <br>
 	    <input type="password" placeholder="Enter Password" name="password" required>
 	    <br>   
@@ -121,7 +121,7 @@ case "regist":
 
 	  <div class="containerLogin">
 	  <form action="controller/logincontroller.php" method="post">
-	    <input type="text" placeholder="Enter Username" name="email" required>
+	    <input type="text" placeholder="Enter Email" name="email" required>
 	    <br>
 	    <input type="password" placeholder="Enter Password" name="password" required>
 	    <br>   

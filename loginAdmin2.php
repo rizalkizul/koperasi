@@ -59,6 +59,12 @@
 }
 	</style>
 </head>
+<?php
+	$p = isset($_GET['p']) ? $_GET['p'] : '';
+    switch($p) 
+    {
+     default :
+?>
 <body>
 	<h1 id="headingLogin1">KOPERASI</h1>
 	<h1 id="headingLogin2">YAYASAN ISTIQAMAH</h1>
@@ -75,7 +81,7 @@
 
 	  <div class="containerLogin">
 	  <form action="controller/loginAdminController.php" method="post">
-	    <input type="text" placeholder="Enter Username" name="email" required>
+	    <input type="text" placeholder="Enter Email" name="email" required>
 	    <br>
 	    <input type="password" placeholder="Enter Password" name="password" required>
 	    <br>   
@@ -93,4 +99,45 @@
 
 
 </body>
+<?php
+break;
+case "regist":
+?>
+<body>
+	<h1 id="headingLogin1">KOPERASI</h1>
+	<h1 id="headingLogin2">YAYASAN ISTIQAMAH</h1>
+
+	<div id="popup2" class="overlay">
+	<div class="popup">
+		<h2>Berhasil Registrasi!!!</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+		</div>
+	</div>
+</div>	
+
+	  <div class="containerLogin">
+	  <form action="controller/loginAdminController.php" method="post">
+	    <input type="text" placeholder="Enter Email" name="email" required>
+	    <br>
+	    <input type="password" placeholder="Enter Password" name="password" required>
+	    <br>   
+	    <button id="btnLogin" type="submit" name="submit" value="Submit">Login</button>
+	    <a href="" style="padding-left: 140px;">Lupa Kata Sandi?</a>
+	  </form>
+
+	  <div id="daftar">
+	  	<div style="padding-top: 20px; width: 400px;text-align: center; font-size: 18px;">
+	    <a href="login.html">Masuk Sebagai Anggota</a>
+	  </div>
+	  </div>
+	  
+	  </div>
+
+
+</body>
+<?php
+break;
+}
+?>
 </html>
