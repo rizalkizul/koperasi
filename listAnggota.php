@@ -49,10 +49,7 @@ $(document).ready(function() {
 				    <th class="no">No</th>
 				    <th class="id">ID</th>
 				    <th class="nama">Nama</th>
-				    <th class="noHP">No. HP</th>
 				    <th class="jk">Jenis Kelamin</th>
-				    <th class="alamat">Alamat</th>
-				    <th class="email">Email</th>
 				  </tr>
 				</thead>
 			</table>
@@ -70,10 +67,7 @@ $(document).ready(function() {
 						 					<td id=\"noList\" class=\"no\"><a class=\"link\" href=\"listAnggota.php?id_anggota=$row[id_anggota]\"></a></td>
 						 					<td class=\"id\">$row[id_anggota]</td>
 						 					<td class=\"nama\">$row[nama]</td>
-						 					<td class=\"noHP\">$row[no_hp]</td>
 						 					<td class=\"jk\">$row[gender]</td>
-						 					<td class=\"alamat\">$row[alamat]</td>
-						 					<td class=\"email\">$row[email]</td>
 						 				</tr>
 						 		";
 						 	}

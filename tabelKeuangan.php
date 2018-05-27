@@ -14,7 +14,7 @@
 		include 'header.php';
 		include 'logout.php';
 	?>
-	<h1 class="judulTabel">Tabel Keuangan</h1>
+	<h1 class="judulTabel">Tabel Pembayaran</h1>
 	<div class="container">
   		<table class="main">
   			<thead>
